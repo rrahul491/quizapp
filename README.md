@@ -1,3 +1,13 @@
+## Environment setup
+
+Create a `.env.local` file in the project root:
+
+```
+POSTGRES_URL=postgres://USER:PASSWORD@HOST:PORT/DB?sslmode=require
+```
+
+Use the connection string from your Neon database (e.g., quiz-app-01). When deploying on Vercel, add `POSTGRES_URL` in Project → Settings → Environment Variables (or link via the Neon integration). The API at `app/api/save-user/route.ts` uses this variable through `@vercel/postgres`.
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started

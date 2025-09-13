@@ -90,11 +90,17 @@ const Login: React.FC<LoginProps> = ({ onLoginSuccess, className = '' }) => {
     e.preventDefault();
     
     if (validateForm()) {
-      // Save to localStorage only if available
-      if (typeof window !== 'undefined') {
-        localStorage.setItem('quiz-user-data', JSON.stringify(formData));
-      }
-      onLoginSuccess(formData);
+      // Try to persist to DB; fallback to localStorage
+      fetch('/api/save-user', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      }).catch(() => {}).finally(() => {
+        if (typeof window !== 'undefined') {
+          localStorage.setItem('quiz-user-data', JSON.stringify(formData));
+        }
+        onLoginSuccess(formData);
+      });
     }
   };
 
