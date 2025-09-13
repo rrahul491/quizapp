@@ -1,0 +1,99 @@
+.quiz {
+  @apply max-w-4xl mx-auto p-4 sm:p-6 space-y-4 sm:space-y-6;
+}
+
+.quiz--complete {
+  @apply text-center py-8 sm:py-12;
+}
+
+.quiz__header {
+  @apply space-y-4;
+}
+
+.quiz__info {
+  @apply flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-2 sm:space-y-0;
+}
+
+.quiz__progress {
+  @apply text-center sm:text-left;
+}
+
+.quiz__progress-text {
+  @apply text-base sm:text-lg font-medium text-gray-600;
+}
+
+.quiz__total-time {
+  @apply flex items-center justify-center sm:justify-end space-x-2 text-sm sm:text-base text-gray-500;
+}
+
+.quiz__time-icon {
+  @apply w-4 h-4 sm:w-5 sm:h-5;
+}
+
+.quiz__total-time-text {
+  @apply font-medium;
+}
+
+.quiz__timer {
+  @apply w-full;
+}
+
+.quiz__content {
+  @apply space-y-4 sm:space-y-6;
+}
+
+.quiz__question-container {
+  @apply relative overflow-hidden;
+  transition: transform 0.5s ease-in-out;
+}
+
+.quiz__question-container--animating {
+  @apply transform translate-x-full;
+}
+
+.quiz__question {
+  @apply w-full;
+}
+
+.quiz__actions {
+  @apply flex justify-center;
+}
+
+.quiz__submit-btn {
+  @apply min-w-32;
+}
+
+.quiz__complete-message {
+  @apply space-y-4;
+}
+
+.quiz__complete-title {
+  @apply text-2xl sm:text-3xl font-bold text-gray-800;
+}
+
+.quiz__complete-text {
+  @apply text-base sm:text-lg text-gray-600;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .quiz {
+    @apply p-3 space-y-3;
+  }
+  
+  .quiz__header {
+    @apply space-y-3;
+  }
+  
+  .quiz__info {
+    @apply space-y-3;
+  }
+  
+  .quiz__progress-text {
+    @apply text-sm;
+  }
+  
+  .quiz__total-time {
+    @apply text-xs;
+  }
+}

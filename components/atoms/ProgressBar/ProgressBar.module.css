@@ -1,0 +1,19 @@
+.progress-bar {
+  @apply w-full bg-gray-200 rounded-full h-2 overflow-hidden;
+}
+
+.progress-bar__fill {
+  @apply h-full transition-all duration-300 ease-out;
+}
+
+.progress-bar--blue .progress-bar__fill {
+  @apply bg-blue-600;
+}
+
+.progress-bar--yellow .progress-bar__fill {
+  @apply bg-yellow-500;
+}
+
+.progress-bar--red .progress-bar__fill {
+  @apply bg-red-600;
+}

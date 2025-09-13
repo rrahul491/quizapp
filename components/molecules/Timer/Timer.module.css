@@ -1,0 +1,23 @@
+.timer {
+  @apply w-full;
+}
+
+.timer__container {
+  @apply flex items-center space-x-3;
+}
+
+.timer__progress {
+  @apply flex-1;
+}
+
+.timer__display {
+  @apply flex items-center space-x-2 text-gray-700;
+}
+
+.timer__icon {
+  @apply w-5 h-5;
+}
+
+.timer__time {
+  @apply text-lg font-semibold;
+}

@@ -24,3 +24,11 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Import component styles */
+@import '../components/atoms/Button/Button.module.css';
+@import '../components/atoms/RadioButton/RadioButton.module.css';
+@import '../components/atoms/ProgressBar/ProgressBar.module.css';
+@import '../components/molecules/Timer/Timer.module.css';
+@import '../components/molecules/QuestionCard/QuestionCard.module.css';
+@import '../components/organisms/Quiz/Quiz.module.css';

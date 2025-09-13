@@ -1,0 +1,26 @@
+.radio {
+  @apply flex items-center space-x-2 sm:space-x-3 p-2 sm:p-3 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer transition-colors;
+}
+
+.radio--disabled {
+  @apply opacity-50 cursor-not-allowed;
+}
+
+.radio__input {
+  @apply w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2 flex-shrink-0;
+}
+
+.radio__label {
+  @apply text-gray-900 cursor-pointer flex-1 text-sm sm:text-base;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .radio {
+    @apply space-x-2 p-2;
+  }
+  
+  .radio__label {
+    @apply text-xs;
+  }
+}
