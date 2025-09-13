@@ -1,0 +1,220 @@
+@reference "tailwindcss";
+
+.login {
+  @apply min-h-screen flex items-center justify-center py-4 sm:py-8;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  position: relative;
+}
+
+.loginCard {
+  @apply w-full max-w-md mx-auto p-6 sm:p-8 rounded-2xl relative z-10;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.1),
+    0 8px 16px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.dark .loginCard {
+  background: rgba(31, 41, 55, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.loginHeader {
+  @apply text-center mb-6;
+}
+
+.loginTitle {
+  @apply text-2xl sm:text-3xl font-bold mb-2;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.loginSubtitle {
+  @apply text-base sm:text-lg;
+  color: var(--text-secondary);
+}
+
+.loginForm {
+  @apply space-y-4 sm:space-y-6;
+}
+
+.formGroup {
+  @apply space-y-2;
+}
+
+.label {
+  @apply block text-sm font-medium;
+  color: var(--text-primary);
+}
+
+.input {
+  @apply w-full px-4 py-3 border rounded-xl text-sm sm:text-base;
+  @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent;
+  background: rgba(255, 255, 255, 0.8);
+  color: #1f2937;
+  border: 2px solid rgba(102, 126, 234, 0.2);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.input:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.dark .input {
+  background: rgba(31, 41, 55, 0.8);
+  color: #f9fafb;
+  border-color: rgba(102, 126, 234, 0.3);
+}
+
+.dark .input:focus {
+  background: rgba(31, 41, 55, 0.95);
+}
+
+.inputError {
+  border-color: var(--wrong);
+}
+
+.errorText {
+  @apply text-sm;
+  color: var(--wrong);
+}
+
+.checkboxGroup {
+  @apply flex items-start space-x-3;
+}
+
+.checkbox {
+  @apply mt-1 w-4 h-4;
+  color: var(--hover-selected);
+  background: var(--background);
+  border-color: var(--border);
+}
+
+.checkboxLabel {
+  @apply text-sm leading-relaxed;
+  color: var(--text-primary);
+}
+
+.termsLink {
+  @apply transition-all duration-200;
+  color: #667eea;
+  text-decoration: underline;
+  text-decoration-color: #667eea;
+  text-underline-offset: 2px;
+}
+
+.termsLink:hover {
+  color: #764ba2;
+  text-decoration-color: #764ba2;
+  text-shadow: 0 0 8px rgba(102, 126, 234, 0.3);
+}
+
+.submitButton {
+  @apply w-full mt-6;
+}
+
+/* Modal Styles */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+}
+
+.modal {
+  width: 100%;
+  max-width: 32rem;
+  max-height: 80vh;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  background: white;
+  border: 1px solid #e5e7eb;
+}
+
+.modalHeader {
+  @apply flex items-center justify-between p-4 sm:p-6 border-b;
+  border-color: var(--border);
+}
+
+.modalTitle {
+  @apply text-xl sm:text-2xl font-bold;
+  color: var(--text-primary);
+}
+
+.closeButton {
+  @apply w-8 h-8 flex items-center justify-center text-2xl font-bold rounded-full;
+  @apply hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors;
+  color: var(--text-secondary);
+}
+
+.modalContent {
+  @apply p-4 sm:p-6 overflow-y-auto max-h-96;
+}
+
+.termsSection {
+  @apply mb-6;
+}
+
+.termsSection h3 {
+  @apply text-lg font-semibold mb-3;
+  color: var(--text-primary);
+}
+
+.termsSection ul {
+  @apply space-y-2;
+}
+
+.termsSection li {
+  @apply text-sm sm:text-base;
+  color: var(--text-secondary);
+}
+
+.termsSection p {
+  @apply text-sm sm:text-base leading-relaxed;
+  color: var(--text-secondary);
+}
+
+.modalFooter {
+  @apply p-4 sm:p-6 border-t flex justify-end;
+  border-color: var(--border);
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .loginCard {
+    @apply p-4;
+  }
+  
+  .loginTitle {
+    @apply text-xl;
+  }
+  
+  .loginSubtitle {
+    @apply text-sm;
+  }
+  
+  .modal {
+    @apply max-h-[90vh];
+  }
+  
+  .modalContent {
+    @apply max-h-64;
+  }
+}
