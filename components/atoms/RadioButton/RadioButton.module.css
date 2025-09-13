@@ -1,7 +1,7 @@
 @reference "tailwindcss";
 
 .radio {
-  @apply flex items-center space-x-3 sm:space-x-4 p-4 sm:p-5 border rounded-xl cursor-pointer transition-all duration-300;
+  @apply flex items-center space-x-3 p-3 sm:p-4 border rounded-xl cursor-pointer transition-all duration-300;
   background: var(--mcq-options);
   border: 2px solid var(--border);
   backdrop-filter: blur(10px);
@@ -20,7 +20,7 @@
 }
 
 .radio__input {
-  @apply w-5 h-5 focus:ring-2 flex-shrink-0;
+  @apply w-4 h-4 focus:ring-2 flex-shrink-0;
   color: var(--hover-selected-solid);
   background: var(--question-box);
   border: 2px solid var(--border);
@@ -35,7 +35,7 @@
 }
 
 .radio__label {
-  @apply cursor-pointer flex-1 text-sm sm:text-base;
+  @apply cursor-pointer flex-1 text-sm;
   color: var(--text-primary);
 }
 

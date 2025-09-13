@@ -126,9 +126,10 @@ export default function Home() {
     const score = calculateScore();
     const totalQuestions = quizResults.length;
     const percentage = Math.round((score / totalQuestions) * 100);
+    const userEmail = userData?.email || '';
 
     return (
-      <div className="min-h-screen flex items-center justify-center py-4 sm:py-8" style={{ background: 'var(--background-solid)' }}>
+      <div className="min-h-screen py-4 sm:py-8" style={{ background: 'var(--background-solid)' }}>
         <SimpleThemeToggle />
         <div className="fixed top-4 right-16 z-10">
           <button
@@ -149,17 +150,29 @@ export default function Home() {
             </svg>
           </button>
         </div>
-        <div className="max-w-2xl mx-auto p-4 sm:p-8 rounded-lg shadow-lg text-center" style={{ background: 'var(--question-box)', border: '1px solid var(--border)' }}>
-          <h1 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6" style={{ color: 'var(--text-primary)' }}>Quiz Results</h1>
-          <div className="space-y-4 mb-6 sm:mb-8">
-            <div className="text-4xl sm:text-6xl font-bold" style={{ color: 'var(--hover-selected)' }}>{score}/{totalQuestions}</div>
-            <div className="text-xl sm:text-2xl" style={{ color: 'var(--text-secondary)' }}>{percentage}%</div>
-            <p className="text-sm sm:text-base" style={{ color: 'var(--text-secondary)' }}>Correct Answers</p>
+        <div className="max-w-6xl mx-auto p-4 sm:p-8 rounded-lg shadow-lg" style={{ background: 'var(--question-box)', border: '1px solid var(--border)' }}>
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
+            <h1 className="text-2xl sm:text-3xl font-bold" style={{ color: 'var(--text-primary)' }}>Quiz Results</h1>
+            <div className="text-sm sm:text-base" style={{ color: 'var(--text-secondary)' }}>{userEmail}</div>
           </div>
-          
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6 sm:mb-8">
+            <div className="p-4 rounded-lg text-center" style={{ background: 'var(--mcq-options)' }}>
+              <div className="text-xs sm:text-sm" style={{ color: 'var(--text-secondary)' }}>Score</div>
+              <div className="text-3xl sm:text-5xl font-bold" style={{ color: 'var(--hover-selected)' }}>{score}/{totalQuestions}</div>
+            </div>
+            <div className="p-4 rounded-lg text-center" style={{ background: 'var(--mcq-options)' }}>
+              <div className="text-xs sm:text-sm" style={{ color: 'var(--text-secondary)' }}>Accuracy</div>
+              <div className="text-2xl sm:text-4xl font-bold" style={{ color: 'var(--text-primary)' }}>{percentage}%</div>
+            </div>
+            <div className="p-4 rounded-lg text-center" style={{ background: 'var(--mcq-options)' }}>
+              <div className="text-xs sm:text-sm" style={{ color: 'var(--text-secondary)' }}>Total Questions</div>
+              <div className="text-2xl sm:text-4xl font-bold" style={{ color: 'var(--text-primary)' }}>{totalQuestions}</div>
+            </div>
+          </div>
+
           <div className="space-y-4 mb-6 sm:mb-8">
             <h2 className="text-lg sm:text-xl font-semibold" style={{ color: 'var(--text-primary)' }}>Question Review</h2>
-            <div className="space-y-2 max-h-64 sm:max-h-96 overflow-y-auto">
+            <div className="space-y-2 max-h-80 overflow-y-auto">
               {quizResults.map((result, index) => (
                 <div key={result.questionId} className="p-2 sm:p-3 rounded-lg text-left" style={{
                   backgroundColor: result.isCorrect ? 'var(--correct)' : 'var(--wrong)',
