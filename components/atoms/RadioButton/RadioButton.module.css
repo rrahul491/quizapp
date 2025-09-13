@@ -1,5 +1,18 @@
+@reference "tailwindcss";
+
 .radio {
-  @apply flex items-center space-x-2 sm:space-x-3 p-2 sm:p-3 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer transition-colors;
+  @apply flex items-center space-x-3 sm:space-x-4 p-4 sm:p-5 border rounded-xl cursor-pointer transition-all duration-300;
+  background: var(--mcq-options);
+  border: 2px solid var(--border);
+  backdrop-filter: blur(10px);
+}
+
+.radio:hover {
+  background: var(--hover-selected);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+  border-color: transparent;
 }
 
 .radio--disabled {
@@ -7,11 +20,23 @@
 }
 
 .radio__input {
-  @apply w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2 flex-shrink-0;
+  @apply w-5 h-5 focus:ring-2 flex-shrink-0;
+  color: var(--hover-selected-solid);
+  background: var(--question-box);
+  border: 2px solid var(--border);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.radio__input:checked {
+  background: var(--hover-selected);
+  border-color: var(--hover-selected-solid);
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
 }
 
 .radio__label {
-  @apply text-gray-900 cursor-pointer flex-1 text-sm sm:text-base;
+  @apply cursor-pointer flex-1 text-sm sm:text-base;
+  color: var(--text-primary);
 }
 
 /* Responsive adjustments */

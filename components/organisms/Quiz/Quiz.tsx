@@ -23,10 +23,34 @@ const Quiz: React.FC<QuizProps> = ({ onQuizComplete, className = '' }) => {
   const [isQuizComplete, setIsQuizComplete] = useState(false);
   const [isQuestionSubmitted, setIsQuestionSubmitted] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [totalTimeLeft, setTotalTimeLeft] = useState(5 * 60); // 5 minutes in seconds
+  const [quizStarted, setQuizStarted] = useState(false);
 
   const currentQuestion = quizData.questions[currentQuestionIndex];
   const totalQuestions = quizData.questions.length;
   const totalTime = 5 * 60; // 5 minutes in seconds
+
+  // Start quiz when component mounts
+  useEffect(() => {
+    setQuizStarted(true);
+  }, []);
+
+  // Total timer countdown
+  useEffect(() => {
+    if (!quizStarted || isQuizComplete) return;
+
+    if (totalTimeLeft <= 0) {
+      setIsQuizComplete(true);
+      onQuizComplete(quizResults);
+      return;
+    }
+
+    const timer = setTimeout(() => {
+      setTotalTimeLeft(prev => prev - 1);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, [totalTimeLeft, quizStarted, isQuizComplete, quizResults, onQuizComplete]);
 
   const handleAnswerSelect = (answer: string) => {
     if (!isQuestionSubmitted) {
@@ -104,11 +128,12 @@ const Quiz: React.FC<QuizProps> = ({ onQuizComplete, className = '' }) => {
               <circle cx="12" cy="12" r="10"/>
               <polyline points="12,6 12,12 16,14"/>
             </svg>
-            <span className="quiz__total-time-text">Total: {formatTime(totalTime)}</span>
+            <span className="quiz__total-time-text">Total: {formatTime(totalTimeLeft)}</span>
           </div>
         </div>
         <Timer
-          duration={30}
+          key={currentQuestionIndex}
+          duration={10}
           onTimeUp={handleTimeUp}
           className="quiz__timer"
         />

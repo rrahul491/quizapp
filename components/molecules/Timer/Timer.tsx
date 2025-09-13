@@ -13,7 +13,7 @@ const Timer: React.FC<TimerProps> = ({
   className = '',
 }) => {
   const [timeLeft, setTimeLeft] = useState(duration);
-  const [progress, setProgress] = useState(0);
+  const [progress, setProgress] = useState(100);
 
   useEffect(() => {
     if (timeLeft <= 0) {
@@ -23,16 +23,16 @@ const Timer: React.FC<TimerProps> = ({
 
     const timer = setTimeout(() => {
       setTimeLeft(timeLeft - 1);
-      setProgress(((duration - timeLeft + 1) / duration) * 100);
+      setProgress((timeLeft / duration) * 100);
     }, 1000);
 
     return () => clearTimeout(timer);
   }, [timeLeft, duration, onTimeUp]);
 
   const getProgressColor = (): 'blue' | 'yellow' | 'red' => {
-    if (progress >= 90) return 'red';
-    if (progress >= 50) return 'yellow';
-    return 'blue';
+    // Green all the time, red only in last 5 seconds (when progress <= 25%)
+    if (progress <= 25) return 'red';
+    return 'blue'; // This will be green in our CSS
   };
 
   const formatTime = (seconds: number): string => {
