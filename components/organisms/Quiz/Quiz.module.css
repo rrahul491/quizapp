@@ -51,23 +51,19 @@
 }
 
 .quiz__question-container {
-  @apply relative overflow-hidden;
-  transition: all 0.5s ease-in-out;
+  @apply relative overflow-visible;
   border-radius: 1rem;
   box-shadow: var(--shadow);
 }
 
-.quiz__question-container--animating {
-  @apply opacity-0;
-  transform: scale(0.95);
-}
+.quiz__question-container--animating { }
 
 .quiz__question {
   @apply w-full;
 }
 
 .quiz__actions {
-  @apply flex justify-center;
+  @apply flex justify-center pt-2;
 }
 
 .quiz__submit-btn {

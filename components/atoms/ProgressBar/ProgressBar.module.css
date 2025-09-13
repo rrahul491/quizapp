@@ -6,7 +6,7 @@
 
 .progress-bar__fill {
   @apply h-full;
-  transition: width 0.1s linear;
+  transition: width 0.02s linear;
   border-radius: inherit;
 }
 

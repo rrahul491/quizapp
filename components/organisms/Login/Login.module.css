@@ -7,7 +7,7 @@
 }
 
 .loginCard {
-  @apply w-full max-w-md mx-auto p-6 sm:p-8 rounded-2xl relative z-10;
+  @apply w-full max-w-sm mx-auto p-5 sm:p-6 rounded-2xl relative z-10;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -27,7 +27,7 @@
 }
 
 .loginTitle {
-  @apply text-2xl sm:text-3xl font-bold mb-2;
+  @apply text-xl sm:text-2xl font-bold mb-2;
   background: linear-gradient(135deg, #667eea, #764ba2);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -35,7 +35,7 @@
 }
 
 .loginSubtitle {
-  @apply text-base sm:text-lg;
+  @apply text-sm sm:text-base;
   color: var(--text-secondary);
 }
 
@@ -53,7 +53,7 @@
 }
 
 .input {
-  @apply w-full px-4 py-3 border rounded-xl text-sm sm:text-base;
+  @apply w-full px-3 py-2.5 border rounded-xl text-sm;
   @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent;
   background: rgba(255, 255, 255, 0.8);
   color: #1f2937;
@@ -88,7 +88,7 @@
 }
 
 .checkboxGroup {
-  @apply flex items-start space-x-3;
+  @apply flex items-start space-x-2;
 }
 
 .checkbox {
@@ -104,7 +104,7 @@
 }
 
 .termsLink {
-  @apply transition-all duration-200;
+  @apply transition-all duration-200 text-sm;
   color: #667eea;
   text-decoration: underline;
   text-decoration-color: #667eea;
@@ -118,7 +118,7 @@
 }
 
 .submitButton {
-  @apply w-full mt-6;
+  @apply w-full mt-4;
 }
 
 /* Modal Styles */

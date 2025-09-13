@@ -12,7 +12,7 @@
   --button-on-primary: #ffffff;
   --correct: #16a34a;
   --wrong: #dc2626;
-  --text-primary: #111111;
+  --text-primary: #484848;
   --text-secondary: #374151;
   --border: #e5e7eb;
   --shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
@@ -31,7 +31,7 @@
   --button-on-primary: #000000;
   --correct: #22c55e; /* kept for quiz states */
   --wrong: #ef4444;
-  --text-primary: #ffffff;
+  --text-primary: #484848;
   --text-secondary: #d1d5db;
   --border: #333333;
   --shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
